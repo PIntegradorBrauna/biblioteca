@@ -26,9 +26,10 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install flake8 pytest
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-  
+        pip install -r requirements.txt
+    - name: Instalar Banco
+      run:
+        python manage.py migrate
     - name: Test with Django
       run: |
         python manage.py test
